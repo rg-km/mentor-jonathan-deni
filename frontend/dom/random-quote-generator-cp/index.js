@@ -2,11 +2,11 @@
 Uncomment variable dibawah ini untuk mulai mengerjakan. dilarang mengganti nama variable yang dibuat.
 */
 
-// let quote = element untuk menampilkan quote
-// let author = element untuk menampilkan author
-// let citation = element untuk menampilkan citation
-// let year = element untuk menampilkan year
-// let button = tombol untuk melakuan generate random quote
+let quote
+let author
+let citation
+let year
+let button
 
 var quotes = [
 	{
@@ -172,12 +172,30 @@ var quotes = [
 ];
 
 // TODO: answer here
+// Get elemen button "Generate Quote" dan set onclick attribute nya dengan function get quote
+button = document.getElementsByClassName('btn-generate')
+button[0].onclick = displayQuote
+
+// Get elemen text yang akan di set dari data quote
+quote = document.getElementById('random-quote')
+author = document.getElementsByClassName('author')[0]
+citation = document.getElementsByClassName('citation')[0]
+year = document.getElementsByClassName('year')[0]
 
 function getQuote() {
-	// TODO: answer here
+	// TODO: function yang bertugas untuk mendapatkan 1 random quote dari daftar quote yang tersedia.
+	return quotes[Math.floor(Math.random() * quotes.length)];
 }
 
-
 function displayQuote() {
-	// TODO: answer here
+	// function yang bertugas untuk menampilkan quote yang didapat pada function `getQuote`.
+	let randomQuote = getQuote();
+	quote.innerHTML = randomQuote.quote
+	author.innerHTML = randomQuote.author
+	if (randomQuote.citation) {
+		citation.innerHTML = randomQuote.citation
+	}
+	if (randomQuote.year) {
+		year.innerHTML = randomQuote.year
+	}
 }
