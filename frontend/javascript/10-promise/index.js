@@ -9,7 +9,7 @@ const onMyBirthday = (isMyFriendSick) => {
       }
 
       return reject(false);
-    }, 2000);
+    }, 2000); //milisecond , 1 detik = 1000ms
   });
 };
 

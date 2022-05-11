@@ -14,8 +14,8 @@ employees.set(1001, "John");
 employees.set(1002, "Steve");
 employees.set(1003, "Maria");
 
-printEmployee(employees, 1001);
-printEmployee(employees, 1010);
+printEmployee(employees, 1001); // John
+printEmployee(employees, 1010); // No employee with id 1010
 if (isEmployeeExists(employees, 1002)) {
     console.log("Employee with id 1002 exists");
 }

@@ -24,6 +24,17 @@
 
 const returnUserAverageScore = (students) => {
   // TODO: answer here
+  let rataNilaiStudents = students.map(student => {
+    return {
+      name: student.name,
+      rataNilai: Math.round(
+        student.nilai.reduce((total, curr) => {
+          return total + curr
+        }) / student.nilai.length
+      )
+    }
+  });
+  return rataNilaiStudents
 };
 
 module.exports = returnUserAverageScore

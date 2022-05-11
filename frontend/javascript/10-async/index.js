@@ -38,8 +38,18 @@ function getPromisePeopleById(id) {
     (stringResult) => {
       return JSON.parse(stringResult);
     }
-  );
+  ).catch((e) => {
+    console.log(e)
+  })
 }
+
+function accessPeoplePromise() {
+  getPromisePeopleById(1).then((people) => console.log(people));
+}
+
+// console.log('test 1');
+// accessPeoplePromise();
+// console.log('test 2');
 
 async function getDataPeopleById(id) {
   const stringResult = await getStarWarsData(
@@ -49,13 +59,13 @@ async function getDataPeopleById(id) {
   return JSON.parse(stringResult);
 }
 
-function accessPeoplePromise() {
-  getPromisePeopleById(1).then((people) => console.log(people));
-}
-accessPeoplePromise();
-
 async function accessPeople() {
+  console.log('async 1');
   const people = await getDataPeopleById(1);
   console.log(people);
+  console.log('async 2');
 }
+
+console.log('synchronous 1');
 accessPeople();
+console.log('synchronous 2');

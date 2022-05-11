@@ -7,6 +7,7 @@ describe("Scoreboard", () => {
         s.push(new Score("Levi", 3, 2, 2)) //score: 3*4 - 2 = 10
         s.push(new Score("Agus", 3, 4, 0)) //score: 3*4 - 4 = 8
         s.push(new Score("Anon", 3, 0, 4)) //score: 3*4 - 0 = 12
+        console.log(s)
         let scores = new Scores(s)
 
         let expected = ["Anon", "Levi", "Agus"]

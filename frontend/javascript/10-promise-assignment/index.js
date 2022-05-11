@@ -63,6 +63,25 @@ function promiseStarWarsData(url) {
 
 function getDataPeopleByIdWithFilms(peopleId) {
   // TODO: answer here
+  return new Promise((resolve, reject) => { 
+    promiseStarWarsData('https://swapi.dev/api/people/' + peopleId).then(people => {
+      let dataPeople = people;
+      let filmArray = dataPeople.films;
+      Promise.all(filmArray.map(film => promiseStarWarsData(film))).then((values) => {
+        dataPeople.films = values.map(value => {
+          return {
+            title: value.title,
+            episode_id: value.episode_id
+          }
+        });
+        resolve(dataPeople)
+      }).catch((err) => {
+        reject(err)
+      })
+    }).catch((err) => {
+      reject(err)
+    })
+  });
 }
 
 module.exports = { getDataPeopleByIdWithFilms };
